@@ -12,5 +12,7 @@ class HtmlNode:
         string_builder = ''
         for prop, y in self.props.items():
             string_builder += f" {prop}=\"{y}\""
-        # print(string_builder)
         return string_builder
+
+    def __repr__(self):
+        return f"Tag: {self.tag} Value: {self.value} Children: {self.children} Props: {self.props}"
