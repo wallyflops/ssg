@@ -34,7 +34,13 @@ def main():
     ],
     )
 
-    node.to_html()
+    a = node.to_html()
+
+    text_node = TextNode("This is a test", TextType.NORMAL)
+    text_node_2 = TextNode("This is a test", TextType.LINK)
+
+    b = text_node_2.text_node_to_html_node()
+    print(b)
 
 if __name__ == "__main__":
     main()
