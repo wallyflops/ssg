@@ -11,19 +11,6 @@ def main():
         "target": "_blank"
     }
 
-    html_node = HtmlNode(props=input)
-    # a = html_node.props_to_html()
-    # print(a)
-    
-    # print(html_node)
-    # leaf_node = LeafNode(tag=None, value='Heres a stringaling')
-    # leaf_node_2 = LeafNode(tag='p', value='Heres a stringaling')
-    # leaf_node_3 = LeafNode(tag='a', value='"Click me!", {"href": "https://www.google.com"}')
-    # a = leaf_node.to_html()
-    # b = leaf_node_2.to_html()
-    # c = leaf_node_3.to_html()
-    
-    # print(c)
     node = ParentNode(
     "p",
     [
@@ -36,11 +23,16 @@ def main():
 
     a = node.to_html()
 
-    text_node = TextNode("This is a test", TextType.NORMAL)
-    text_node_2 = TextNode("This is a test", TextType.LINK)
-
+    # text_node = TextNode("This is a test", TextType.NORMAL)
+    text_node_2 = TextNode("Some alt text", TextType.IMAGE, props={"src": "https://example.com/image.jpg", "alt": "Some alt text"})
     b = text_node_2.text_node_to_html_node()
     print(b)
+    
+
+    # Example of creating a link TextNode
+    text_node_link = TextNode("Click me", TextType.LINK, props={"href": "https://www.google.com"})
+    c = text_node_link.text_node_to_html_node()
+    print(c)
 
 if __name__ == "__main__":
     main()

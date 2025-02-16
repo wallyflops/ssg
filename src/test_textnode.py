@@ -12,7 +12,7 @@ class TestTextNode(unittest.TestCase):
     def test_url(self):
         node = TextNode("This is a text node", 
                         TextType.BOLD, 
-                        url=None)
+                        props=None)
         node2 = TextNode("This is a text node", 
                         TextType.BOLD)
         
@@ -23,6 +23,15 @@ class TestTextNode(unittest.TestCase):
         node3 = TextNode("asdasasd asd ", TextType.BOLD)
 
         self.assertNotEqual(node, node3)
+    
+    def test_text_node_to_html_text(self):
+        node = TextNode("testing plain text!", TextType.TEXT)
+        node2 = node.text_node_to_html_node()
+
+        self.assertEqual(node2.value, "testing plain text!")
+    
+    # def test_text_node
+
 
 if __name__ == "__main__":
     unittest.main()
